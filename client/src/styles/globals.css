@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
+:root {
+  --sacred-gold: #d4af37;
+  --sacred-saffron: #ff6600;
+  --sacred-maroon: #800020;
+  --sacred-deep-blue: #1e3a5f;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f1419 100%);
+  color: #f5f5f5;
+  font-family: 'Cinzel', serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d4af37, #ff6600);
+  border-radius: 4px;
+}
+
+/* Glowing text effect */
+.glow-text {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5),
+               0 0 20px rgba(212, 175, 55, 0.3),
+               0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+/* Sacred border */
+.sacred-border {
+  border: 2px solid transparent;
+  background: linear-gradient(#1a1a2e, #1a1a2e) padding-box,
+              linear-gradient(135deg, #d4af37, #ff6600, #d4af37) border-box;
+  border-radius: 12px;
+}
+
+/* Om symbol animation */
+.om-pulse {
+  animation: om-pulse 3s ease-in-out infinite;
+}
+
+@keyframes om-pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(255, 102, 0, 0.5));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 25px rgba(255, 102, 0, 0.8));
+  }
+}
+
+/* Particle effects base */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #d4af37, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Lotus petal animation */
+.lotus-petal {
+  transform-origin: bottom center;
+  animation: lotus-bloom 4s ease-in-out infinite;
+}
+
+@keyframes lotus-bloom {
+  0%, 100% {
+    transform: rotateX(0deg) scale(1);
+  }
+  50% {
+    transform: rotateX(15deg) scale(1.05);
+  }
+}
+
+/* Sanskrit text styling */
+.sanskrit-text {
+  font-family: 'Noto Sans Devanagari', serif;
+  line-height: 1.8;
+}
+
+/* Mandala container */
+.mandala-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Shimmer effect for loading */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Card hover effect */
+.spiritual-card {
+  transition: all 0.3s ease;
+  background: rgba(26, 26, 46, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.spiritual-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #d4af37, #ff6600);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Breathing animation for meditation */
+.breathe {
+  animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
