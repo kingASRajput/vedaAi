@@ -40,7 +40,7 @@ interface Scripture {
   chapters: Chapter[];
 }
 
-const API_URL = process.env.NEXT_PUBLIC_SCRIPTURE_API_URL || 'http://localhost:8080/api';
+const API_URL = '/api';
 
 export default function ScriptureDetailPage() {
   const params = useParams();

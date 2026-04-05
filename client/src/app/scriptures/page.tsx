@@ -16,7 +16,7 @@ interface ScriptureData {
   totalVerses: number;
 }
 
-const API_URL = process.env.NEXT_PUBLIC_SCRIPTURE_API_URL || 'http://localhost:8080/api';
+const API_URL = '/api';
 
 export default function ScripturesPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
