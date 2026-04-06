@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { BookOpen, Filter, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { ScriptureGrid, FloatingMandala, Lotus, OmSymbol } from '@/components';
 
 const categories = ['All', 'Vedas', 'Upanishads', 'Puranas', 'Epics', 'Sutras'];
@@ -39,7 +38,6 @@ export default function ScripturesPage() {
         setError(null);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load scriptures');
-        // Fallback to empty array
         setScriptures([]);
       } finally {
         setLoading(false);
@@ -53,7 +51,6 @@ export default function ScripturesPage() {
     ? scriptures
     : scriptures.filter((s) => s.category === selectedCategory);
 
-  // Transform API data to match ScriptureCard props
   const transformedScriptures = filteredScriptures.map(s => ({
     id: s.id,
     title: s.name,
@@ -70,13 +67,9 @@ export default function ScripturesPage() {
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <div className="flex justify-center mb-4">
-            <Lotus size={100} />
+            <Lotus size={80} />
           </div>
           <h1 className="text-4xl md:text-5xl font-spiritual gradient-text mb-4">
             Sacred Scriptures
@@ -85,15 +78,10 @@ export default function ScripturesPage() {
             Explore the timeless wisdom of ancient India through our comprehensive 
             collection of Vedas, Upanishads, and other sacred texts.
           </p>
-        </motion.div>
+        </div>
 
         {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => (
             <button
               key={category}
@@ -107,17 +95,12 @@ export default function ScripturesPage() {
               {category}
             </button>
           ))}
-        </motion.div>
+        </div>
 
         {/* Loading State */}
         {loading && (
           <div className="flex flex-col items-center justify-center py-20">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
-            >
-              <OmSymbol size={60} className="opacity-50" />
-            </motion.div>
+            <Loader2 className="w-10 h-10 text-sacred-gold animate-spin" />
             <p className="text-gray-500 mt-4 font-spiritual">Loading scriptures...</p>
           </div>
         )}
@@ -126,18 +109,12 @@ export default function ScripturesPage() {
         {error && !loading && (
           <div className="text-center py-12">
             <p className="text-red-400">{error}</p>
-            <p className="text-gray-500 mt-2">Using offline data...</p>
           </div>
         )}
 
         {/* Scripture Stats */}
         {!loading && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="flex justify-center gap-8 mb-12"
-          >
+          <div className="flex justify-center gap-8 mb-12">
             <div className="text-center">
               <p className="text-3xl font-spiritual gradient-text">{transformedScriptures.length}</p>
               <p className="text-gray-500 text-sm">Scriptures</p>
@@ -148,7 +125,7 @@ export default function ScripturesPage() {
               </p>
               <p className="text-gray-500 text-sm">Total Verses</p>
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* Scripture Grid */}
