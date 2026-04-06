@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen">
-        <SacredParticles count={40} />
+        <SacredParticles />
         <OmBackground />
         <Navbar />
         <main className="pt-16 relative z-10">
